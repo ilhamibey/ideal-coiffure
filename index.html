@@ -1,0 +1,1873 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>L'idéal Coiffure. — Premium Hair Extensions & Dimensional Color | Cedar Falls, IA</title>
+  <meta name="description" content="L'idéal Coiffure Co. is an exclusive private salon in Downtown Cedar Falls, IA specializing in IBE® invisible bead extensions and low-maintenance dimensional color." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=Syne:wght@400;500;600;700&family=Inter+Tight:ital,wght@0,200;0,300;0,400;1,300&family=Tangerine:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── tokens ─────────────────────────────────────────────────────── */
+    :root {
+      --bg:         #f9f6f4;
+      --surface:    #ffffff;
+      --fg:         #090909;
+      --muted:      #0e6ad3;
+      --border:     #e4d5d3;
+      --accent:     #288be8;
+      --accent-2:   oklab(71.187% -0.02534 -0.10861);
+
+      --accent-soft:  color-mix(in oklch, var(--accent) 14%, transparent);
+      --accent-2-soft: color-mix(in oklch, var(--accent-2) 14%, transparent);
+      --fg-soft:      color-mix(in oklch, var(--fg) 6%, transparent);
+
+      --font-display: 'Syne', 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Inter Tight', -apple-system, system-ui, sans-serif;
+      --font-mono:    ui-monospace, 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+      --font-script:  'Tangerine', cursive;
+
+      --fs-h1: clamp(44px, 6vw, 80px);
+      --fs-h2: clamp(32px, 4vw, 54px);
+      --fs-h3: 22px;
+      --fs-lead: 19px;
+      --fs-body: 16px;
+      --fs-meta: 13px;
+
+      --gap-xs: 8px;
+      --gap-sm: 12px;
+      --gap-md: 20px;
+      --gap-lg: 32px;
+      --gap-xl: 56px;
+      --gap-2xl: 96px;
+      --container: 1120px;
+      --gutter: 32px;
+
+      --radius: 8px;
+      --radius-lg: 16px;
+    }
+
+    /* ─── reset & base ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      font-weight: 300;
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: 0; background: none; }
+    p { text-wrap: pretty; }
+    h1, h2, h3, h4 { text-wrap: balance; }
+    ul { margin: 0; padding: 0; list-style: none; }
+
+    /* ─── layout primitives ─────────────────────────────────────── */
+    .container {
+      max-width: var(--container);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+    .section { padding-block: clamp(48px, 8vw, var(--gap-2xl)); }
+    .stack { display: flex; flex-direction: column; }
+    .stack > * + * { margin-top: var(--gap-md); }
+    .row { display: flex; align-items: center; gap: var(--gap-md); }
+    .row-between { display: flex; align-items: center; justify-content: space-between; gap: var(--gap-md); }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-xl); align-items: center; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-lg); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap-md); }
+
+    /* ─── type ──────────────────────────────────────────────────── */
+    h1 { font-family: var(--font-display); font-size: var(--fs-h1); font-weight: 300; line-height: 1.08; letter-spacing: -0.01em; margin: 0; }
+    h2 { font-family: var(--font-display); font-size: var(--fs-h2); font-weight: 300; line-height: 1.12; letter-spacing: -0.005em; margin: 0; }
+    h3 { font-family: var(--font-display); font-size: var(--fs-h3); font-weight: 400; line-height: 1.3; margin: 0; }
+    .lead { font-size: var(--fs-lead); font-weight: 200; line-height: 1.6; color: var(--muted); max-width: 60ch; margin: 0; }
+    .eyebrow {
+      font-size: 22px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 var(--gap-md);
+    }
+    .meta { font-size: var(--fs-meta); color: var(--muted); }
+    .script { font-family: var(--font-script); font-size: clamp(32px, 5vw, 52px); font-weight: 400; line-height: 0.9; }
+
+    /* ─── header / nav ──────────────────────────────────────────── */
+    .topnav {
+      position: sticky; top: 0; z-index: 99999;
+      background: color-mix(in oklab, var(--bg) 92%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topnav-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 16px; }
+    .topnav-logo {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+    }
+    .topnav-logo span { color: var(--accent); }
+    .topnav nav { display: flex; gap: var(--gap-lg); align-items: center; }
+    .topnav nav a { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); transition: color 0.15s; }
+    .topnav nav a:hover { color: var(--fg); }
+    .nav-cta { display: none; }
+    @media (min-width: 769px) { .nav-cta { display: inline-flex; } }
+    .hamburger { display: none; flex-direction: column; gap: 5px; padding: 4px; background: none; border: 0; cursor: pointer; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--fg); transition: 0.2s; border-radius: 1px; }
+    .hamburger.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .topnav nav { display: none; position: fixed; top: 60px; left: 0; right: 0; background: var(--bg); flex-direction: column; padding: var(--gap-lg) var(--gutter); border-bottom: 1px solid var(--border); gap: var(--gap-md); z-index: 99; }
+      .topnav nav.open { display: flex; }
+      .topnav nav a { font-size: 13px; padding: 8px 0; }
+    }
+
+    /* ─── buttons ───────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .btn-primary { background: var(--accent); color: var(--surface); }
+    .btn-primary:hover { background: color-mix(in oklch, var(--accent) 88%, black); }
+    .btn-secondary { background: transparent; color: var(--surface); border: 1px solid rgba(255,255,255,0.4); }
+    .btn-secondary:hover { border-color: var(--surface); }
+    .btn-outline { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-accent-2 { background: var(--accent-2); color: var(--surface); }
+    .btn-accent-2:hover { background: color-mix(in oklch, var(--accent-2) 88%, black); }
+
+    /* ─── hero ──────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex; align-items: center;
+      background: var(--fg);
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(rgba(9,9,9,0.55), rgba(9,9,9,0.35)),
+        var(--fg-soft);
+      background-size: cover;
+      background-position: center 30%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(0deg, rgba(9,9,9,0.6) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero .container { position: relative; z-index: 2; width: 100%; }
+    .hero-content { max-width: 680px; }
+    .hero h1 { color: var(--surface); margin-bottom: var(--gap-md); }
+    .hero .lead { color: rgba(255,255,255,0.75); font-weight: 200; font-size: clamp(17px, 2vw, 20px); margin-bottom: var(--gap-lg); }
+    .hero-trust { display: flex; gap: var(--gap-lg); margin-top: var(--gap-xl); flex-wrap: wrap; }
+    .hero-trust span { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); position: relative; padding-left: 14px; }
+    .hero-trust span::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+    .hero-cta { display: flex; gap: var(--gap-sm); flex-wrap: wrap; }
+
+    /* ─── value bar ─────────────────────────────────────────────── */
+    .value-bar {
+      background: var(--accent-2);
+      padding-block: 28px;
+    }
+    .value-bar .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--gap-lg);
+      text-align: center;
+    }
+    .value-bar p { color: var(--surface); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; margin: 0; font-weight: 300; }
+    .value-bar p + p { border-left: 1px solid rgba(255,255,255,0.2); padding-left: var(--gap-lg); }
+    @media (max-width: 640px) { .value-bar .container { grid-template-columns: 1fr; gap: var(--gap-sm); } .value-bar p + p { border-left: 0; padding-left: 0; } }
+
+    /* ─── split layouts ─────────────────────────────────────────── */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-2xl); align-items: center; }
+    .split-image { border-radius: var(--radius-lg); overflow: hidden; background: var(--accent-soft); aspect-ratio: 4/5; display: grid; place-items: center; color: var(--muted); font-size: 12px; font-family: var(--font-mono); }
+    .split-image img { width: 100%; height: 100%; object-fit: cover; }
+    .split-text .eyebrow { margin-bottom: var(--gap-sm); }
+    .split-text h2 { margin-bottom: var(--gap-md); }
+    .split-text .lead { margin-bottom: var(--gap-lg); }
+    .split-text ul { margin-top: var(--gap-md); }
+    .split-text li { padding: 8px 0; font-size: 15px; color: var(--muted); display: flex; gap: var(--gap-sm); align-items: flex-start; }
+    .split-text li::before { content: ''; flex-shrink: 0; width: 4px; height: 4px; border-radius: 50%; background: var(--accent-2); margin-top: 10px; }
+    @media (max-width: 920px) { .split { grid-template-columns: 1fr; gap: var(--gap-lg); } .split-image { min-height: 300px; } }
+
+    /* ─── cream panel ───────────────────────────────────────────── */
+    .panel-cream { background: var(--bg); border-radius: var(--radius-lg); padding: var(--gap-xl); }
+    .panel-cream h2 { margin-bottom: var(--gap-md); }
+
+    /* ─── services grid ─────────────────────────────────────────── */
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-xl); }
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--gap-xl);
+    }
+    .service-card .script { color: var(--accent-2); margin-bottom: var(--gap-xs); }
+    .service-card h3 { font-family: var(--font-display); font-size: 28px; font-weight: 300; margin-bottom: var(--gap-md); }
+    .service-card li { padding: 6px 0; font-size: 15px; color: var(--muted); display: flex; gap: var(--gap-sm); align-items: flex-start; }
+    .service-card li::before { content: ''; flex-shrink: 0; width: 4px; height: 4px; border-radius: 50%; background: var(--accent-2); margin-top: 10px; }
+    .service-card .btn { margin-top: var(--gap-md); }
+    @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
+
+    /* ─── features (experience) ─────────────────────────────────── */
+    .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-lg); margin-top: var(--gap-lg); }
+    .feature-item { padding: var(--gap-md); border-left: 2px solid var(--accent-soft); }
+    .feature-item p { margin: 6px 0 0; font-size: 14px; color: var(--muted); }
+    @media (max-width: 640px) { .features-grid { grid-template-columns: 1fr; } }
+
+    /* ─── testimonials ──────────────────────────────────────────── */
+    .testimonials {
+      position: relative;
+      min-height: 420px;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--surface) 100%);
+      text-align: center;
+    }
+    .testimonial-slide {
+      position: absolute; left: 0; right: 0;
+      max-width: 700px; margin: 0 auto;
+      opacity: 0; visibility: hidden;
+      transform: translateY(10px) scale(0.97);
+      transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s 0.6s;
+      pointer-events: none;
+    }
+    .testimonial-slide.active {
+      opacity: 1; visibility: visible;
+      transform: translateY(0) scale(1);
+      transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s 0s;
+      pointer-events: auto;
+    }
+    .testimonial-slide .quote-mark {
+      font-family: var(--font-display);
+      font-size: 100px; line-height: 0.6;
+      color: var(--accent-2); opacity: 0.15;
+    }
+    .testimonial-slide blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.8vw, 30px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.4;
+      margin: 0 0 var(--gap-md);
+    }
+    .testimonial-author { font-size: 13px; color: var(--muted); letter-spacing: 0.08em; }
+    .testimonial-dots { display: flex; justify-content: center; gap: 10px; }
+    .testimonial-dots button {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--border); border: 0; cursor: pointer; padding: 0; transition: background 0.2s;
+    }
+    .testimonial-dots button.active { background: var(--accent); }
+
+    /* ─── gallery grid ──────────────────────────────────────────── */
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-md); }
+    .gallery-item {
+      aspect-ratio: 3/4;
+      border-radius: var(--radius-lg);
+      background: var(--accent-soft);
+      overflow: hidden;
+      display: grid; place-items: center;
+      position: relative;
+    }
+    .gallery-item .label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 12px 16px;
+      background: linear-gradient(transparent, rgba(9,9,9,0.6));
+      color: var(--surface);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-align: left;
+    }
+    @media (max-width: 768px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .gallery-grid { grid-template-columns: 1fr; } }
+
+    /* ─── team section ─── flashy editorial variant ────────────── */
+    .team-section {
+      position: relative;
+      background: var(--fg);
+      overflow: hidden;
+      padding-block: clamp(56px, 10vw, 120px);
+    }
+    .team-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(154,106,79,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 20% 100%, rgba(165,136,119,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .team-section .container { position: relative; z-index: 1; }
+    .team-section .eyebrow { color: var(--accent); opacity: 0.8; }
+    .team-section h2 { color: var(--surface); }
+    .team-section .lead { color: rgba(255,255,255,0.5); }
+
+    .team-grid-flash {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: var(--gap-xl);
+      perspective: 1200px;
+    }
+
+    .team-card-flash {
+      position: relative;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 20px;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 0.5s cubic-bezier(0.2,0,0,1), box-shadow 0.5s ease;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .team-card-flash.revealed {
+      animation: cardEnter 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    .team-card-flash:nth-child(1).revealed { animation-delay: 0.05s; }
+    .team-card-flash:nth-child(2).revealed { animation-delay: 0.2s; }
+    .team-card-flash:nth-child(3).revealed { animation-delay: 0.35s; }
+
+    @keyframes cardEnter {
+      0% {
+        opacity: 0;
+        transform: translateY(60px) scale(0.92) rotateX(8deg);
+        filter: blur(8px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotateX(0deg);
+        filter: blur(0);
+      }
+    }
+
+    .team-card-flash:hover {
+      transform: translateY(-8px) scale(1.02) rotateX(2deg);
+      box-shadow: 0 20px 60px rgba(154,106,79,0.25);
+    }
+
+    .team-card-flash-image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+    }
+    .team-card-flash-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.2,0,0,1), filter 0.6s ease;
+    }
+    .team-card-flash:hover .team-card-flash-image img {
+      transform: scale(1.08);
+      filter: saturate(1.1) contrast(1.05);
+    }
+
+    .team-card-flash-image::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(9,9,9,0.6) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .team-card-flash-body {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 20px 20px 22px;
+      z-index: 2;
+      text-align: left;
+    }
+    .team-card-flash-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--surface);
+      margin: 0 0 2px;
+      letter-spacing: -0.01em;
+    }
+    .team-card-flash-name .script { font-size: 22px; color: var(--accent); }
+    .team-card-flash-role {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin: 0 0 12px;
+    }
+
+    .team-card-flash .btn-team-flash {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 50px;
+      display: inline-block;
+      color: var(--surface);
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    .team-card-flash .btn-team-flash:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* floating decorative sparkle */
+    .team-sparkle {
+      position: absolute;
+      width: 4px; height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0;
+      animation: sparkle 3s ease-in-out infinite;
+    }
+    @keyframes sparkle {
+      0%, 100% { opacity: 0; transform: scale(0); }
+      50% { opacity: 0.6; transform: scale(1); }
+    }
+    .team-sparkle:nth-child(1) { top: 12%; left: 8%; animation-delay: 0.2s; }
+    .team-sparkle:nth-child(2) { top: 30%; right: 12%; animation-delay: 1.1s; }
+    .team-sparkle:nth-child(3) { bottom: 25%; left: 15%; animation-delay: 2s; }
+
+    @media (max-width: 920px) { .team-grid-flash { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
+    @media (max-width: 560px) { .team-grid-flash { grid-template-columns: 1fr; max-width: 360px; margin-inline: auto; gap: 16px; } }
+    @media (prefers-reduced-motion: reduce) {
+      .team-card-flash { opacity: 1; animation: none; }
+      .team-card-flash:hover { transform: none; }
+      .team-card-flash:hover img { transform: none; }
+      .team-sparkle { display: none; }
+    }
+
+    /* ─── FAQ accordion ─────────────────────────────────────────── */
+    .faq-list { max-width: 680px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%; text-align: left; padding: 20px 0;
+      font-size: 16px; font-weight: 400;
+      display: flex; justify-content: space-between; align-items: center;
+      background: none; border: 0; cursor: pointer; color: var(--fg);
+    }
+    .faq-q::after {
+      content: '+'; font-size: 20px; color: var(--accent);
+      transition: transform 0.2s;
+    }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .faq-a-inner { padding-bottom: 20px; font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+    /* ─── location ──────────────────────────────────────────────── */
+    /* ─── footer ────────────────────────────────────────────────── */
+    .pagefoot {
+      padding-block: var(--gap-xl);
+      padding-bottom: calc(var(--gap-xl) + 80px);
+      background: var(--accent-2);
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+      font-weight: 200;
+    }
+    .pagefoot .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--gap-md); }
+    .pagefoot-links { display: flex; gap: var(--gap-lg); flex-wrap: wrap; }
+    .pagefoot-links a { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.9); transition: color 0.15s; }
+    .pagefoot-links a:hover { color: var(--surface); }
+    .pagefoot-social { display: flex; gap: var(--gap-sm); }
+    .pagefoot-social a { width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: grid; place-items: center; transition: border-color 0.15s; }
+    .pagefoot-social a:hover { border-color: var(--surface); }
+    .pagefoot-social svg { width: 14px; height: 14px; fill: rgba(255,255,255,0.5); }
+    .pagefoot-social a:hover svg { fill: var(--surface); }
+
+    /* ─── responsive ────────────────────────────────────────────── */
+    @media (max-width: 920px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .hero { min-height: 70vh; }
+    }
+    @media (max-width: 480px) {
+      :root { --gutter: 20px; }
+      .hero { min-height: 85vh; }
+    }
+
+    /* ─── image placeholders ────────────────────────────────────── */
+    .ph-img {
+      background: linear-gradient(135deg, var(--accent-soft), var(--fg-soft)), var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    /* ─── divider ───────────────────────────────────────────────── */
+    hr { border: 0; border-top: 1px solid var(--border); margin: 0; }
+  /* ─── animations ───────────────────────────────────────────── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.94); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .reveal { opacity: 0; }
+    .reveal.visible {
+      animation: fadeInUp 0.7s cubic-bezier(0.2, 0, 0, 1) forwards;
+    }
+    .reveal-scale { opacity: 0; }
+    .reveal-scale.visible {
+      animation: scaleIn 0.6s cubic-bezier(0.2, 0, 0, 1) forwards;
+    }
+    .reveal-fade { opacity: 0; }
+    .reveal-fade.visible {
+      animation: fadeIn 0.5s cubic-bezier(0.2, 0, 0, 1) forwards;
+    }
+
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s cubic-bezier(0.2, 0, 0, 1),
+                  transform 0.5s cubic-bezier(0.2, 0, 0, 1);
+    }
+    .stagger.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+    .stagger.visible > *:nth-child(2) { transition-delay: 0.12s; opacity: 1; transform: translateY(0); }
+    .stagger.visible > *:nth-child(3) { transition-delay: 0.19s; opacity: 1; transform: translateY(0); }
+    .stagger.visible > *:nth-child(4) { transition-delay: 0.26s; opacity: 1; transform: translateY(0); }
+    .stagger.visible > *:nth-child(5) { transition-delay: 0.33s; opacity: 1; transform: translateY(0); }
+    .stagger.visible > *:nth-child(6) { transition-delay: 0.40s; opacity: 1; transform: translateY(0); }
+
+    /* button hover micro-interactions */
+    .btn { position: relative; overflow: hidden; }
+    .btn::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(255,255,255,0.08);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1);
+    }
+    .btn:hover::after { transform: scaleX(1); transform-origin: left; }
+
+    .btn-primary, .btn-accent-2 {
+      transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1),
+                  background 0.15s;
+    }
+    .btn-primary:hover, .btn-accent-2:hover { transform: translateY(-1px); }
+    .btn-primary:active, .btn-accent-2:active { transform: translateY(0); }
+
+    /* gallery hover effect */
+    .gallery-item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.2, 0, 0, 1); }
+    .gallery-item:hover img { transform: scale(1.06); }
+
+    /* testimonial slide transition handled above via opacity/visibility */
+
+    /* hero parallax — reinforced */
+    .hero-parallax-layer {
+      position: absolute;
+      left: 0;
+      top: -25%;
+      width: 100%;
+      height: 150%;
+      will-change: transform;
+      overflow: hidden;
+    }
+    .hero-parallax-layer img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      will-change: transform;
+      transition: transform 0.1s linear;
+    }
+
+    /* service card hover */
+    .service-card {
+      transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1),
+                  box-shadow 0.3s cubic-bezier(0.2, 0, 0, 1);
+    }
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(9,9,9,0.07);
+    }
+
+    /* feature item hover */
+    .feature-item { transition: background 0.2s; cursor: default; }
+    .feature-item:hover { background: color-mix(in oklch, var(--accent-2) 6%, transparent); border-radius: 4px; }
+
+    /* ─── photo stack ──────────────────────────────────── */
+    .photo-stack-section { text-align: center; overflow: hidden; }
+    .photo-stack-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .photo-stack-container {
+      position: relative;
+      width: 220px;
+      height: 220px;
+    }
+    .stack-photo {
+      position: absolute; top: 0; left: 0;
+      width: 220px; height: 220px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(9,9,9,0.08);
+      opacity: 0;
+      transform: translate(0, 0) scale(0.88);
+      transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1.2);
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+    }
+    .stack-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .stack-photo.revealed {
+      opacity: 1;
+      transform: translate(var(--tx), var(--ty)) scale(1);
+    }
+    .stack-photo:hover {
+      z-index: 9999 !important;
+      transform: translate(var(--tx), var(--ty)) scale(1.08) rotate(var(--rot, 0deg)) !important;
+      transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1);
+    }
+    @media (max-width: 768px) {
+      .photo-stack-wrapper { height: 200px; }
+      .photo-stack-container { width: 140px; height: 140px; }
+      .stack-photo { width: 140px; height: 140px; border-radius: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .stack-photo { opacity: 1; transform: translate(var(--tx), var(--ty)) scale(1); transition: none; }
+    }
+
+    /* ─── our stylists ────────────────────────── */
+    .our-stylists {
+      position: relative;
+      width: 100%;
+      height: 520px;
+      display: flex;
+      overflow: hidden;
+      background: var(--fg);
+    }
+    .stylist-half {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .stylist-half::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(9,9,9,0.25) 0%, rgba(9,9,9,0.55) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .stylist-half img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1);
+    }
+    .stylist-half:hover img { transform: scale(1.05); }
+
+    .stylist-label {
+      position: absolute;
+      bottom: 32px;
+      left: 0; right: 0;
+      text-align: center;
+      z-index: 3;
+      color: rgba(255,255,255,0.7);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 200;
+    }
+    .stylist-label strong {
+      display: block;
+      color: var(--surface);
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      margin-bottom: 2px;
+    }
+
+    /* ─── center card 200×200 ──────────────── */
+    .stylist-card-wrap {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      z-index: 10;
+      perspective: 800px;
+    }
+    .stylist-card {
+      position: relative;
+      width: 100%; height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .stylist-card.flipped {
+      transform: rotateY(180deg);
+    }
+    .stylist-card-face {
+      position: absolute; inset: 0;
+      backface-visibility: hidden;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid rgba(255,255,255,0.6);
+      box-shadow: 0 8px 32px rgba(9,9,9,0.25), 0 0 0 1px rgba(255,255,255,0.08);
+      cursor: pointer;
+    }
+    .stylist-card-face img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .stylist-card-back {
+      transform: rotateY(180deg);
+    }
+
+    /* ─── text overlay ──────────────────────── */
+    .stylists-text {
+      position: absolute;
+      bottom: 80px;
+      left: 0; right: 0;
+      text-align: center;
+      z-index: 3;
+      color: var(--surface);
+      pointer-events: none;
+    }
+    .stylists-text .eyebrow { color: rgba(255,255,255,0.4); }
+    .stylists-text h2 { color: var(--surface); }
+
+    @media (max-width: 640px) {
+      .our-stylists { height: 400px; flex-direction: column; }
+      .stylist-card-wrap { width: 140px; height: 140px; }
+      .stylists-text { bottom: 48px; }
+      .stylist-label { bottom: 20px; font-size: 10px; }
+    }
+
+    /* reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal, .reveal-scale, .reveal-fade, .stagger > * { opacity: 1; transform: none; }
+      .service-card:hover { transform: none; }
+      .gallery-item:hover img { transform: none; }
+      .stylist-half:hover img { transform: none; }
+      .stylist-card { transform: none !important; }
+      html { scroll-behavior: auto; }
+      .btn:hover::after { transform: scaleX(0); }
+      .btn-primary:hover, .btn-accent-2:hover { transform: none; }
+      #cursor-follower, #cursor-glow { display: none; }
+      #progress-scissors .blade-left,
+      #progress-scissors .blade-right,
+      #progress-scissors svg { animation: none !important; }
+      #progress-bar::before { animation: none; background: none; }
+    }
+
+    /* ─── Cursor follower ──────────────────────────────────────────── */
+    #cursor-follower {
+      position: fixed; pointer-events: none; z-index: 999999;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid color-mix(in oklch, var(--accent) 50%, transparent);
+      background: color-mix(in oklch, var(--accent) 8%, transparent);
+      transform: translate(-50%, -50%);
+      transition: width 0.3s cubic-bezier(0.2,0,0,1),
+                  height 0.3s cubic-bezier(0.2,0,0,1),
+                  border-color 0.3s cubic-bezier(0.2,0,0,1),
+                  background 0.3s cubic-bezier(0.2,0,0,1),
+                  opacity 0.3s;
+      will-change: transform, left, top;
+      left: -100px; top: -100px;
+    }
+    #cursor-follower.hidden { opacity: 0; }
+
+    #cursor-glow {
+      position: fixed; pointer-events: none; z-index: 999998;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, color-mix(in oklch, var(--accent) 20%, transparent) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s;
+      will-change: transform, left, top;
+      left: -100px; top: -100px;
+    }
+    #cursor-glow.hidden { opacity: 0; }
+
+    /* magnetic hover — scale + glow */
+    .btn.magnetic {
+      transition: transform 0.4s cubic-bezier(0.2,0,0,1),
+                  box-shadow 0.4s cubic-bezier(0.2,0,0,1);
+    }
+    .btn.magnetic:hover {
+      transform: scale(1.06) !important;
+      box-shadow: 0 0 30px color-mix(in oklch, var(--accent) 40%, transparent),
+                  0 0 60px color-mix(in oklch, var(--accent) 15%, transparent);
+    }
+
+    /* ─── Scroll progress bar (coiffure edition) ────────────────────── */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; z-index: 100000;
+      height: 4px; border-radius: 0 4px 4px 0;
+      background: linear-gradient(90deg,
+        var(--accent) 0%, #66ace5 25%, var(--accent) 50%,
+        #87c5ee 70%, #09a3ef 100%);
+      transition: width 60ms linear;
+      will-change: width;
+      overflow: visible;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+    }
+    #progress-bar::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(90deg,
+        transparent 0%, rgba(147, 184, 240, 0.3) 15%,
+        transparent 30%, rgba(71, 168, 237, 0.15) 50%,
+        transparent 70%, rgba(108, 175, 233, 0.25) 85%,
+        transparent 100%);
+      background-size: 200% 100%;
+      animation: hairShine 3s ease-in-out infinite;
+    }
+    @keyframes hairShine {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    #progress-scissors {
+      position: fixed; top: -10px; left: 0; z-index: 100001;
+      width: 32px; height: 32px;
+      transform: rotate(-90deg);
+      transform-origin: 16px 16px;
+      pointer-events: none;
+      transition: left 60ms linear;
+      will-change: left, transform;
+      filter: drop-shadow(0 0 6px rgba(185,130,85,0.5))
+              drop-shadow(0 0 14px rgba(200,150,90,0.3));
+    }
+    #progress-scissors svg {
+      display: block; width: 100%; height: 100%;
+      overflow: visible;
+    }
+    @keyframes bladeOpenL {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(-14deg); }
+    }
+    @keyframes bladeOpenR {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(14deg); }
+    }
+    #progress-scissors .blade-left {
+      animation: bladeOpenL 1.4s ease-in-out infinite;
+      transform-origin: 16px 14px;
+    }
+    #progress-scissors .blade-right {
+      animation: bladeOpenR 1.4s ease-in-out infinite;
+      transform-origin: 16px 14px;
+    }
+  </style>
+</head>
+<body>
+  <div id="cursor-follower" class="hidden" aria-hidden="true"></div>
+  <div id="cursor-glow" class="hidden" aria-hidden="true"></div>
+
+  <div id="progress-bar" role="progressbar" aria-label="Progression de la page"></div>
+  <div id="progress-scissors" aria-hidden="true">
+    <svg viewBox="0 0 32 32" fill="none">
+      <defs>
+        <linearGradient id="scissorGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#69a2e3"/>
+          <stop offset="40%" stop-color="#69a2e3"/>
+          <stop offset="100%" stop-color="#69a2e3"/>
+        </linearGradient>
+      </defs>
+      <g>
+        <!-- Left half: anneau → tige → pivot → lame -->
+        <g class="blade-left">
+          <ellipse cx="6" cy="8" rx="4" ry="3" stroke="url(#scissorGrad)" stroke-width="2.5"/>
+          <line x1="10" y1="9" x2="16" y2="14" stroke="url(#scissorGrad)" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="16" y1="14" x2="8" y2="28" stroke="url(#scissorGrad)" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+        <!-- Right half: anneau → tige → pivot → lame -->
+        <g class="blade-right">
+          <ellipse cx="26" cy="8" rx="4" ry="3" stroke="url(#scissorGrad)" stroke-width="2.5"/>
+          <line x1="22" y1="9" x2="16" y2="14" stroke="url(#scissorGrad)" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="16" y1="14" x2="24" y2="28" stroke="url(#scissorGrad)" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+        <!-- Pivot central -->
+        <circle cx="16" cy="14" r="2" fill="url(#scissorGrad)" stroke="#f5e6d3" stroke-width="0.6"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ═══ HEADER / NAV ═══ -->
+  <header class="topnav" data-od-id="topnav">
+    <div class="container topnav-inner">
+      <a href="#" class="topnav-logo">L'idéal Coiffure</a>
+      <nav id="main-nav">
+        <a href="#services">Services</a>
+        <a href="#stylists">Stylists</a>
+        <a href="#team">Équipe</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="hamburger" id="menu-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="content">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero" data-od-id="hero">
+      <div class="hero-bg" style="position:absolute;inset:0;background:var(--fg);">
+        <div class="hero-parallax-layer">
+          <img src="https://images.unsplash.com/photo-1681561248415-58f48ed63046?auto=format&fit=crop&w=1920&q=80" alt="Blonde woman getting her hair cut — editorial salon session" style="width:100%;height:100%;object-fit:cover;opacity:0.7;" loading="eager" />
+        </div>
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(9,9,9,0.5) 0%,rgba(9,9,9,0.25) 50%,rgba(9,9,9,0.5) 100%);pointer-events:none;"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>Le moment.<br />bien-être</h1>
+          <div class="hero-cta">
+            <button class="btn btn-secondary" onclick="(function(){var e=document.getElementById('services');if(e)window.scrollTo({top:e.offsetTop-60,behavior:'smooth'});})()">Nos Services</button>
+          </div>
+          <div class="hero-trust">
+            <span>Certifieé MASTER</span>
+            <span>Salon privé</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ STACKED GALLERY ═══ -->
+    <section class="section photo-stack-section" id="featured" data-od-id="featured">
+      <div class="container">
+        <p class="eyebrow" style="text-align:center;">Featured Transformations</p>
+        <h2 style="text-align:center;">La différence <span style="color: var(--accent);">Idéal Coiffure</span></h2>
+        <p class="lead" style="text-align:center; margin: var(--gap-sm) auto var(--gap-lg); max-width: 480px;">Cheveux longs, épais, fragiles — toute transformation commence par une conversation. Notre manière à nous.</p>
+        <div class="photo-stack-wrapper">
+          <div class="photo-stack-container">
+            <div class="stack-photo" data-idx="0">
+              <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=400&q=80" alt="IBE® Hair Transformation" loading="lazy" />
+            </div>
+            <div class="stack-photo" data-idx="1">
+              <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=400&q=80" alt="Dimensional Blonde" loading="lazy" />
+            </div>
+            <div class="stack-photo" data-idx="2">
+              <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Brunette Transformation" loading="lazy" />
+            </div>
+            <div class="stack-photo" data-idx="0">
+              <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=400&q=80" alt="IBE® Hair Transformation" loading="lazy" />
+            </div>
+            <div class="stack-photo" data-idx="4">
+              <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=400&q=80" alt="Soft Dimension" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ VALUE BAR ═══ -->
+    <section class="value-bar reveal" data-od-id="value-bar">
+      <div class="container">
+        <p>Invisible Bead Extensions</p>
+        <p>Dimensional Color</p>
+        <p>Private Salon Experience</p>
+      </div>
+    </section>
+
+    <!-- ═══ OUR STYLISTS ═══ -->
+    <section class="our-stylists" id="stylists" data-od-id="stylists">
+      <div class="stylist-half">
+        <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=1000&q=80" alt="Dana — MASTER IBE® Stylist" loading="lazy" />
+        <div class="stylist-label">
+          <strong>Dana M.</strong>
+          MASTER IBE® Stylist &amp; Color Specialist
+        </div>
+      </div>
+      <div class="stylist-half">
+        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1000&q=80" alt="Salon stylist at work" loading="lazy" />
+        <div class="stylist-label">
+          <strong>Your Stylist</strong>
+          Certified &amp; Experienced Team
+        </div>
+      </div>
+
+      <!-- center flip card 200×200 -->
+      <div class="stylist-card-wrap">
+        <div class="stylist-card" id="stylist-card">
+          <div class="stylist-card-face">
+            <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=400&q=80" alt="Dana portrait" loading="lazy" />
+          </div>
+          <div class="stylist-card-face stylist-card-back">
+            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=400&q=80" alt="Stylist team" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+      <div class="stylists-text">
+        <p class="eyebrow">Our Stylists</p>
+        <h2>Your Hype Squad.</h2>
+      </div>
+    </section>
+
+    <!-- ═══ VALUE PROPOSITION ═══ -->
+    <section class="section reveal" data-od-id="value-prop">
+      <div class="container split">
+        <div class="split-text">
+          <p class="eyebrow">Our Promise</p>
+          <h2>Where You'll Always Leave as Your Best Self</h2>
+          <p class="lead">L'idéal Coiffure. is a private space where you'll feel relaxed and cared for, with premium extension and color services crafted around you.</p>
+          <ul>
+            <li>Certified MASTER IBE® stylist — invisible, glue-free, heat-free application</li>
+            <li>Dimensional color specialist — balayage, root melt, natural blondes, caramel tones</li>
+            <li>Intimate, warm studio — your comfort is the foundation of every appointment</li>
+          </ul>
+          <div style="margin-top: var(--gap-lg);">
+            <button class="btn btn-primary" onclick="(function(){var e=document.getElementById('about');if(e)window.scrollTo({top:e.offsetTop-60,behavior:'smooth'});})()">Meet Dana</button>
+          </div>
+        </div>
+        <div class="split-image" aria-label="Salon lifestyle photo">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Cliente au salon" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ ABOUT DANA ═══ -->
+    <section class="section reveal" id="about" data-od-id="about">
+      <div class="container split">
+        <div class="split-image" aria-label="Dana portrait" style="order:-1;">
+          <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=800&q=80" alt="Dana — styliste certifiée" loading="lazy" />
+        </div>
+        <div class="split-text">
+          <p class="eyebrow">Your Stylist</p>
+          <h2>Hi, I'm Dana — Your Hair &amp; Confidence Partner</h2>
+          <p class="lead" style="margin-bottom: var(--gap-md);">Certified MASTER IBE® stylist &amp; dimensional color specialist, I combine cutting-edge technique with genuine listening to create a look that's truly you.</p>
+          <p style="color: var(--muted); font-size: 15px; margin: 0;">My studio is a cocoon where you can exhale, be yourself, and leave lighter, more confident, and radiant. Your hair goals are my priority — together we aim for the best possible result.</p>
+          <div class="script" style="margin: var(--gap-md) 0 var(--gap-lg);">Self-confidence is the cherry on top.</div>
+          <button class="btn btn-primary">Book with Dana</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SERVICES ═══ -->
+    <section class="section reveal" id="services" data-od-id="services" style="background: var(--surface);">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: var(--gap-xl);">
+          <p class="eyebrow">Services</p>
+          <h2>Expertise Premium, Adaptée à Vous</h2>
+        </div>
+        <div class="services-grid stagger">
+          <div class="service-card">
+            <div class="script">Extensions®</div>
+            <h3>Extension cheveux <br> Plus long, Plus fort, Plus épais</h3>
+            <ul>
+              <li>Des résultats naturels qui se marient à vos cheveux</li>
+              <li>Confortables à porter même pour les débutants en extension</li>
+              
+              <li>Invisible bead technology — no glue, no heat, no damage</li>
+              
+              <li>Custom length, thickness, and color matched to you</li>
+              <li>Low-maintenance wear with easy daily styling</li>
+            </ul>
+            <button class="btn btn-accent-2">Consultation</button>
+          </div>
+          <div class="service-card">
+            <div class="script">Color</div>
+            <h3>Couleur dimensionnelle <br> Usage facile, Grand Impact</h3>
+            <ul>
+              <li>Balayage qui fond bien avec les racines et pousse naturelle</li>
+              <li>Teintes blondes au choix from buttery caramel to cool champagne</li>
+              <li>Rich brunette tones with dimension and warmth</li>
+              <li>Custom formula designed for your skin tone and lifestyle</li>
+              <li>Simplified upkeep — color that grows with you gracefully</li>
+            </ul>
+            <button class="btn btn-accent-2">Transformation</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ IN-SALON EXPERIENCE ═══ -->
+    <section class="section reveal" data-od-id="experience">
+      <div class="container">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto var(--gap-lg);">
+          <p class="eyebrow">The Experience</p>
+          <h2>Un salon privé conçu pour vous</h2>
+        </div>
+        <div class="panel-cream">
+          <div class="features-grid stagger">
+            <div class="feature-item">
+              <strong>Private &amp; Peaceful</strong>
+              <p>A calm, elegant space away from the noise — just you, your stylist, and the transformation.</p>
+            </div>
+            <div class="feature-item">
+              <strong>Judgment-Free Zone</strong>
+              <p>An atmosphere of trust where you can be yourself, ask questions, and explore what's possible.</p>
+            </div>
+            <div class="feature-item">
+              <strong>Premium Products</strong>
+              <p>High-quality treatments and professional-grade products for results that last.</p>
+            </div>
+            <div class="feature-item">
+              <strong>Your Moment</strong>
+              <p>Even when life is chaotic, this is your time to breathe, reset, and emerge refreshed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TESTIMONIALS ═══ -->
+    <section class="section testimonials reveal" data-od-id="testimonials">
+      <div class="container">
+        <p class="eyebrow" style="text-align: center;">Real Words from Real Clients</p>
+
+        <div class="testimonial-slide active" data-index="0">
+          <div class="quote-mark">"</div>
+          <blockquote>La transformation est incroyable. J'ai finalement obtenu les cheveux que j'ai toujours voulu.</blockquote>
+          <p class="testimonial-author">— Alain F.</p>
+        </div>
+
+        <div class="testimonial-slide" data-index="1">
+          <div class="quote-mark">"</div>
+          <blockquote>A chaque fois que je resors, je me sens comme la meilleure version de moi même. Les soins, l'attention, les cheveux magnifiques. C'est plus qu'une visite au salon. c'est uneJe suis plus en confiance avec mes cheveux que je ne l'ai jamais été.</blockquote>
+          <p class="testimonial-author">— Céline Y.</p>
+        </div>
+
+        <div class="testimonial-slide" data-index="1">
+          <div class="quote-mark">"</div>
+          <blockquote>A chaque fois que je resors, je me sens comme la meilleure version de moi même. Les soins, l'attention, les cheveux magnifiques. C'est plus qu'une visite au salon. c'est uneJe suis plus en confiance avec mes cheveux que je ne l'ai jamais été.</blockquote>
+          <p class="testimonial-author">— Stéphanie G.</p>
+        </div>
+
+        <div class="testimonial-dots">
+          <button class="active" data-slide="0" aria-label="Testimonial 1"></button>
+          <button data-slide="1" aria-label="Testimonial 2"></button>
+          <button data-slide="2" aria-label="Testimonial 3"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TEAM ═══ flashy editorial variant ═══ -->
+    <section class="team-section reveal" id="team" data-od-id="team">
+      <div class="team-sparkle"></div>
+      <div class="team-sparkle"></div>
+      <div class="team-sparkle"></div>
+      <div class="container">
+        <div style="text-align: center; margin-bottom: var(--gap-xl);">
+          <p class="eyebrow">Notre Équipe</p>
+          <h2>Des Artisans <span style="color: var(--accent);">Passionné·e·s</span></h2>
+          <p class="lead" style="margin: var(--gap-sm) auto 0; max-width: 500px;">Chaque membre de notre équipe partage la même obsession : vous révéler. Talent, précision et bienveillance.</p>
+        </div>
+        <div class="team-grid-flash">
+          <div class="team-card-flash">
+            <div class="team-card-flash-image">
+              <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=600&q=80" alt="Dana M. — Fondatrice" loading="lazy" />
+            </div>
+            <div class="team-card-flash-body">
+              <h3 class="team-card-flash-name">Dana <span class="script">M.</span></h3>
+              <p class="team-card-flash-role">Fondatrice &amp; MASTER IBE® Styliste</p>
+              <a href="#book" class="btn-team-flash">Book Now</a>
+            </div>
+          </div>
+          <div class="team-card-flash">
+            <div class="team-card-flash-image">
+              <img src="https://images.unsplash.com/photo-1658932447624-152eaf36cf4e?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sophie L. — Coloriste" loading="lazy" />
+            </div>
+            <div class="team-card-flash-body">
+              <h3 class="team-card-flash-name">Sophie <span class="script">L.</span></h3>
+              <p class="team-card-flash-role">Coloriste Dimensionnelle Senior</p>
+              <a href="#book" class="btn-team-flash">Book Now</a>
+            </div>
+          </div>
+          <div class="team-card-flash">
+            <div class="team-card-flash-image">
+              <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?auto=format&fit=crop&w=600&q=80" alt="Emma R. — Styliste" loading="lazy" />
+            </div>
+            <div class="team-card-flash-body">
+              <h3 class="team-card-flash-name">Emma <span class="script">R.</span></h3>
+              <p class="team-card-flash-role">Styliste Extensions &amp; Soins</p>
+              <a href="#book" class="btn-team-flash">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ GALLERY ═══ -->
+    <section class="section reveal" id="gallery" data-od-id="gallery">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: var(--gap-xl);">
+          <p class="eyebrow">Portfolio</p>
+          <h2>Avant &amp; Après</h2>
+          <p class="lead" style="margin: var(--gap-sm) auto 0;">Vraies transformations, Vraies résultats</p>
+        </div>
+        <div class="gallery-grid stagger">
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=600&q=80" alt="IBE® + Balayage Caramel" loading="lazy" /><span class="label">IBE® + Balayage Caramel</span></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=600&q=80" alt="Dimensional Blonde" loading="lazy" /><span class="label">Dimensional Blonde</span></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80" alt="Root Melt + Extensions" loading="lazy" /><span class="label">Root Melt + Extensions</span></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1551103711-8db4ef575b1e?auto=format&fit=crop&w=600&q=80" alt="Brunette Dimension" loading="lazy" /><span class="label">Brunette Dimension</span></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=600&q=80" alt="IBE® Long Transform" loading="lazy" /><span class="label">IBE® Long Transform</span></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=600&q=80" alt="Soft Balayage" loading="lazy" /><span class="label">Soft Balayage</span></div>
+        </div>
+        <div style="text-align: center; margin-top: var(--gap-lg);">
+          <button class="btn btn-primary">Book Your Consultation</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="section reveal" id="faq" data-od-id="faq" style="background: var(--surface);">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: var(--gap-xl);">
+          <p class="eyebrow">FAQ</p>
+          <h2>Everything You Need to Know</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q">What is the IBE® method and why choose it?</button>
+            <div class="faq-a"><div class="faq-a-inner">IBE® (Invisible Bead Extensions) uses tiny, silicone-lined beads to attach extensions strand by strand — no glue, no heat, no tape. The result is completely invisible, comfortable, and reusable. It's the most requested extension method because it looks natural and protects your natural hair.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">How long does an extension installation take?</button>
+            <div class="faq-a"><div class="faq-a-inner">A full IBE® installation typically takes 3–4 hours depending on the length, thickness, and desired result. Your first appointment includes a thorough consultation to design your custom look. We'll walk through everything so you know exactly what to expect.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Do extensions damage your natural hair?</button>
+            <div class="faq-a"><div class="faq-a-inner">When applied correctly by a certified MASTER stylist, IBE® extensions do not damage your natural hair. The beads are placed away from the scalp and never bonded to the hair shaft. Proper maintenance and timely moves ensure your natural hair stays healthy.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">How long does dimensional color last?</button>
+            <div class="faq-a"><div class="faq-a-inner">One of the main benefits of dimensional color is its low-maintenance nature. Depending on your hair type and care routine, balayage and root melts can last 3–5 months before needing a refresh. The soft grow-out means no harsh regrowth lines.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">How do I prepare for my first consultation?</button>
+            <div class="faq-a"><div class="faq-a-inner">Come as you are! Bring photos of hair looks you love, and be ready to discuss your lifestyle, maintenance expectations, and desired outcome. I'll assess your hair type, texture, and goals to create a personalized plan. No prep needed — just bring your vision.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ═══ CTA STRIP ═══ -->
+    <section class="section" id="book" data-od-id="cta" style="text-align: center; background: var(--fg);">
+      <div class="container" style="max-width: 600px;">
+        <h2 style="color: var(--surface);">Ready for Your Transformation?</h2>
+        <p style="color: rgba(255,255,255,0.6); font-weight: 200; margin: 16px auto 32px; font-size: 17px;">Your dream hair is one appointment away. Let's make it real.</p>
+        <button class="btn btn-primary" style="background: var(--accent);">Book Your Appointment</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="pagefoot" id="pagefoot" data-od-id="footer">
+    <div class="container">
+      <div>
+        <div style="font-family: var(--font-display); font-size: 22px; color: var(--surface); margin-bottom: 4px;">L'idéal Coiffure</div>
+        <div style="font-size: 14px;">&copy; 2025 L'idéal Coiffure. &middot; All rights reserved.</div>
+      </div>
+      <div class="pagefoot-links">
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#stylists">Stylists</a>
+        <a href="#team">Équipe</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="pagefoot-social">
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── Hero parallax ───────────────────────────────────────────
+    (function() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var layer = document.querySelector('.hero-parallax-layer');
+      if (!layer) return;
+      var ticking = false;
+      function update() {
+        var offset = window.scrollY * 0.55;
+        var scale = 1 + window.scrollY * 0.00025;
+        layer.style.transform = 'translate3d(0, ' + offset + 'px, 0) scale(' + scale + ')';
+      }
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            update();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      update();
+    })();
+
+    // ─── Scroll reveal (Intersection Observer) ────────────────────
+    (function() {
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.reveal, .reveal-scale, .reveal-fade, .stagger')
+          .forEach(function(el) { el.classList.add('visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal, .reveal-scale, .reveal-fade, .stagger')
+        .forEach(function(el) { observer.observe(el); });
+    })();
+
+    // ─── Stylist card flip ────────────────────────────────────────
+    (function() {
+      var card = document.getElementById('stylist-card');
+      if (!card) return;
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced) return;
+      var interval = setInterval(function() {
+        card.classList.toggle('flipped');
+      }, 3500);
+      card.addEventListener('click', function() {
+        card.classList.toggle('flipped');
+        clearInterval(interval);
+        interval = setInterval(function() {
+          card.classList.toggle('flipped');
+        }, 3500);
+      });
+    })();
+
+    // ─── Hero entrance (fade in on load) ──────────────────────────
+    (function() {
+      var heroContent = document.querySelector('.hero-content');
+      if (heroContent) {
+        heroContent.style.opacity = '0';
+        requestAnimationFrame(function() {
+          heroContent.style.transition = 'opacity 1s cubic-bezier(0.2, 0, 0, 1), transform 1s cubic-bezier(0.2, 0, 0, 1)';
+          heroContent.style.transform = 'translateY(16px)';
+          requestAnimationFrame(function() {
+            heroContent.style.opacity = '1';
+            heroContent.style.transform = 'translateY(0)';
+          });
+        });
+      }
+    })();
+
+    // ─── Mobile menu toggle ───────────────────────────────────────
+    (function() {
+      const toggle = document.getElementById('menu-toggle');
+      const nav = document.getElementById('main-nav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', function() {
+          this.classList.toggle('active');
+          nav.classList.toggle('open');
+        });
+        nav.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            toggle.classList.remove('active');
+            nav.classList.remove('open');
+          });
+        });
+      }
+    })();
+
+    // ─── Testimonial slider — smooth fade ─────────────────────────
+    (function() {
+      const dots = document.querySelectorAll('.testimonial-dots button');
+      const slides = document.querySelectorAll('.testimonial-slide');
+      let current = 0, timer = null;
+
+      function goTo(idx) {
+        if (idx === current) return;
+        slides[current].classList.remove('active');
+        current = idx;
+        slides[current].classList.add('active');
+        // update dots
+        dots.forEach(function(d) { d.classList.remove('active'); });
+        dots[current].classList.add('active');
+        // reset auto-advance
+        clearInterval(timer);
+        timer = setInterval(autoAdvance, 6000);
+      }
+
+      function autoAdvance() {
+        goTo((current + 1) % slides.length);
+      }
+
+      if (dots.length && slides.length) {
+        dots.forEach(function(dot) {
+          dot.addEventListener('click', function() {
+            goTo(parseInt(this.getAttribute('data-slide')));
+          });
+        });
+        // start auto-advance
+        timer = setInterval(autoAdvance, 6000);
+      }
+    })();
+
+    // ─── FAQ accordion ────────────────────────────────────────────
+    (function() {
+      const items = document.querySelectorAll('.faq-item');
+      items.forEach(function(item) {
+        const q = item.querySelector('.faq-q');
+        const a = item.querySelector('.faq-a');
+        if (q && a) {
+          q.addEventListener('click', function() {
+            const isOpen = item.classList.contains('open');
+            items.forEach(function(other) {
+              other.classList.remove('open');
+              other.querySelector('.faq-a').style.maxHeight = '0';
+            });
+            if (!isOpen) {
+              item.classList.add('open');
+              a.style.maxHeight = a.scrollHeight + 'px';
+            }
+          });
+        }
+      });
+    })();
+    // ─── Team flash cards reveal ─────────────────────────────
+    (function() {
+      var cards = document.querySelectorAll('.team-card-flash');
+      if (!cards.length) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        cards.forEach(function(c) { c.classList.add('revealed'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            cards.forEach(function(c) { c.classList.add('revealed'); });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      observer.observe(document.querySelector('.team-grid-flash'));
+    })();
+
+    // ─── Photo stack reveal ──────────────────────────────────
+    (function() {
+      var container = document.querySelector('.photo-stack-container');
+      if (!container) return;
+      var photos = container.querySelectorAll('.stack-photo');
+      if (!photos.length) return;
+
+      var isMobile = window.innerWidth < 768;
+      var factor = isMobile ? 0.45 : 1;
+
+      var configs = [
+        { x: -300 * factor, y: 15 * factor, z: 50, dir: -1 },
+        { x: -150 * factor, y: 28 * factor, z: 40, dir: -1 },
+        { x: 0, y: 8 * factor, z: 30, dir: 1 },
+        { x: 150 * factor, y: 22 * factor, z: 20, dir: 1 },
+        { x: 300 * factor, y: 40 * factor, z: 10, dir: -1 }
+      ];
+
+      photos.forEach(function(photo, i) {
+        var cfg = configs[i];
+        if (!cfg) return;
+        photo.style.zIndex = cfg.z;
+        photo.style.setProperty('--tx', Math.round(cfg.x) + 'px');
+        photo.style.setProperty('--ty', Math.round(cfg.y) + 'px');
+        photo.style.setProperty('--rot', (cfg.dir * 3) + 'deg');
+      });
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        photos.forEach(function(p) { p.classList.add('revealed'); });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            photos.forEach(function(photo, i) {
+              setTimeout(function() {
+                photo.classList.add('revealed');
+              }, i * 100 + 50);
+            });
+            observer.unobserve(container);
+          }
+        });
+      }, { threshold: 0.15 });
+      observer.observe(container);
+    })();
+  </script>
+
+  <!-- ─── BOTIQUE CHATBOT ─────────────────────────────────────────────── -->
+  <div id="botique-chat" data-od-id="chatbot">
+    <button id="chat-toggle" aria-label="Ouvrir le chat" title="Parlez à IDEAL COIFFURE">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </button>
+
+    <div id="chat-panel">
+      <div id="chat-header">
+        <span class="chat-title">IDEAL COIFFURE</span>
+        <span class="chat-subtitle">Posez votre question capillaire</span>
+        <button id="chat-close" aria-label="Fermer">&times;</button>
+      </div>
+      <div id="chat-messages">
+        <div class="msg bot">
+          <div class="msg-bubble">
+            Salut ✨ Je suis IDEAL COIFFURE. Des questions sur nos extensions, colorations ou pour réserver ? Je suis là !
+          </div>
+        </div>
+      </div>
+      <div id="chat-quick-replies"></div>
+      <form id="chat-form">
+        <input type="text" id="chat-input" placeholder="Écrivez votre message…" autocomplete="off">
+        <button type="submit" id="chat-send" aria-label="Envoyer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <style>
+    /* ─── Chatbot ─────────────────────────────────────────────── */
+    #botique-chat { font-family: 'Inter Tight', system-ui, sans-serif; }
+    #chat-toggle {
+      position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+      width: 56px; height: 56px; border-radius: 50%; border: none;
+      background: var(--accent); color: var(--surface);
+      cursor: pointer; box-shadow: 0 4px 20px rgba(154,106,79,0.35);
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.5s ease, transform 0.25s var(--ease), box-shadow 0.25s var(--ease), visibility 0.5s ease;
+      opacity: 0; visibility: hidden;
+    }
+    #chat-toggle.visible { opacity: 1; visibility: visible; }
+    #chat-toggle:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(154,106,79,0.5); }
+    @media (prefers-reduced-motion: reduce) { #chat-toggle { transition: none; } #chat-toggle:hover { transform: none; } }
+
+    #chat-panel {
+      position: fixed; bottom: 96px; right: 28px; z-index: 9998;
+      width: 360px; max-width: calc(100vw - 56px);
+      background: var(--surface); border-radius: 18px;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.16);
+      overflow: hidden; display: none; flex-direction: column;
+      border: 1px solid var(--border);
+      transform-origin: bottom right;
+    }
+    #chat-panel.open { display: flex; }
+    @media (max-width: 480px) { #chat-panel { right: 12px; bottom: 84px; } }
+
+    #chat-header {
+      background: var(--accent); color: var(--surface);
+      padding: 16px 18px; display: flex; align-items: center; gap: 10px;
+    }
+    #chat-header .chat-title { font-weight: 600; font-size: 16px; letter-spacing: -0.01em; }
+    #chat-header .chat-subtitle { font-size: 11px; opacity: 0.8; margin-left: auto; }
+    #chat-header #chat-close {
+      background: none; border: none; color: var(--surface); font-size: 22px;
+      cursor: pointer; line-height: 1; padding: 0 2px;
+    }
+
+    #chat-messages {
+      flex: 1; padding: 16px 14px; overflow-y: auto;
+      max-height: 320px; display: flex; flex-direction: column; gap: 10px;
+      scroll-behavior: smooth;
+    }
+    #chat-messages::-webkit-scrollbar { width: 4px; }
+    #chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+    .msg { display: flex; }
+    .msg.bot { justify-content: flex-start; }
+    .msg.user { justify-content: flex-end; }
+
+    .msg-bubble {
+      max-width: 82%; padding: 10px 14px; border-radius: 16px;
+      font-size: 14px; line-height: 1.5; word-wrap: break-word;
+    }
+    .msg.bot .msg-bubble {
+      background: color-mix(in oklch, var(--accent) 8%, var(--surface));
+      border-bottom-left-radius: 4px;
+      color: var(--fg);
+    }
+    .msg.user .msg-bubble {
+      background: var(--accent); color: var(--surface);
+      border-bottom-right-radius: 4px;
+    }
+
+    #chat-quick-replies {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      padding: 8px 14px 4px;
+    }
+    .qr-btn {
+      font-size: 12px; padding: 6px 12px; border-radius: 20px;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--muted); cursor: pointer; transition: all 0.15s;
+      font-family: inherit;
+    }
+    .qr-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    #chat-form {
+      display: flex; gap: 6px; padding: 8px 12px 12px;
+      border-top: 1px solid var(--border);
+    }
+    #chat-input {
+      flex: 1; border: 1px solid var(--border); border-radius: 24px;
+      padding: 10px 16px; font-size: 14px; font-family: inherit;
+      outline: none; background: color-mix(in oklch, var(--accent) 4%, var(--surface));
+    }
+    #chat-input:focus { border-color: var(--accent); }
+    #chat-send {
+      width: 40px; height: 40px; border-radius: 50%; border: none;
+      background: var(--accent); color: var(--surface);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: background 0.15s;
+    }
+    #chat-send:hover { background: color-mix(in oklch, var(--accent), black 12%); }
+  </style>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('chat-toggle');
+      var panel = document.getElementById('chat-panel');
+      var closeBtn = document.getElementById('chat-close');
+      var msgContainer = document.getElementById('chat-messages');
+      var input = document.getElementById('chat-input');
+      var form = document.getElementById('chat-form');
+      var qrContainer = document.getElementById('chat-quick-replies');
+
+      var knowledge = {
+        'extension': "Nos extensions IBE® sont invisibles, sans colle ni chaleur. Ultra-confortables, elles se fondent parfaitement à vos cheveux naturels. Une consultation offerte pour découvrir la méthode."
+          + " Pour réserver : appuyez sur le bouton « Book » en bas dans la section Contact. Sinon, dites « Book IBE ».",
+        'ibe': "La méthode IBE® (Invisible Bead Extensions) est la plus demandée — pose discrète, confortable, sans abîmer le cheveu. Résultat naturel et durable."
+          + " Pour réserver : dites « Book IBE ».",
+        'color': "Nos colorations dimensionnelles low-maintenance (balayage, root melt, caramel, blond naturel) sont sur-mesure et faciles à entretenir. Pour réserver : dites « Book Color ».",
+        'prix': "Les prix varient selon la longueur, la densité et le service. Lors de la consultation gratuite, on définit ensemble le meilleur plan adapté à vos cheveux et à votre budget.",
+        'duree': "Une pose d'extensions IBE® dure 2 à 3 heures. Une coloration dimensionnelle : 1h30 à 2h30. On prend le temps qu'il faut pour un résultat parfait.",
+        'entretien': "Avec des soins adaptés et des rdv de maintenance tous les 6 à 8 semaines, vos extensions durent de 3 à 5 mois. La coloration tient 6 à 12 semaines selon la technique.",
+        'rendez-vous': "Vous pouvez réserver directement via le bouton « Book Now » en bas de page, dans la section Contact. Ou dites-moi « Book IBE » ou « Book Color » !",
+        'premiere': "Lors de la première consultation, on discute de vos objectifs, on analyse votre chevelure, et je vous propose un plan personnalisé — sans engagement.",
+        'dana': "Dana est une MASTER styliste IBE® certifiée et coloriste dimensionnelle. Elle combine technique de pointe et écoute pour créer le look qui vous ressemble."
+      };
+
+      function deburr(s) { return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(); }
+
+      function findAnswer(text) {
+        var t = deburr(text);
+        if (/prix|cout|tarif|combien|budget|price/.test(t)) return knowledge['prix'];
+        if (/duree|longtemps|temps|combien de temps/.test(t)) return knowledge['duree'];
+        if (/entretien|maintenance|apres|entret/.test(t)) return knowledge['entretien'];
+        if (/rendez-vous|rdv|book|reserver|prendre rdv|booking/.test(t)) return knowledge['rendez-vous'];
+        if (/premiere|première|preparer|consultation|comment se passe/.test(t)) return knowledge['premiere'];
+        if (/dana|styliste|qui|votre nom/.test(t)) return knowledge['dana'];
+        if (/extension|ibe|invisible|bead|longueur|plus long|epais/.test(t)) return knowledge['extension'];
+        if (/color|coloration|teinture|balayage|caramel|blond|racine|root/.test(t)) return knowledge['color'];
+        return null;
+      }
+
+      function addMsg(text, role) {
+        var div = document.createElement('div');
+        div.className = 'msg ' + role;
+        var bubble = document.createElement('div');
+        bubble.className = 'msg-bubble';
+        bubble.textContent = text;
+        div.appendChild(bubble);
+        msgContainer.appendChild(div);
+        msgContainer.scrollTop = msgContainer.scrollHeight;
+      }
+
+      var qrLabels = ['💰 Prix', '⏱ Durée', '🧴 Entretien', '📅 Réserver', 'IBE®', '🎨 Color'];
+
+      function showQuickReplies() {
+        qrContainer.innerHTML = '';
+        qrLabels.forEach(function(label) {
+          var btn = document.createElement('button');
+          btn.className = 'qr-btn';
+          btn.textContent = label;
+          btn.addEventListener('click', function() {
+            input.value = label.replace(/[^\w\séèàùêâîôûäëïöüç]/g,'').trim();
+            form.dispatchEvent(new Event('submit'));
+          });
+          qrContainer.appendChild(btn);
+        });
+      }
+      showQuickReplies();
+
+      function botReply(userText) {
+        var answer = findAnswer(userText);
+        if (answer) {
+          addMsg(answer, 'bot');
+          return;
+        }
+        // fallback
+        addMsg("Je n'ai pas encore la réponse exacte… Mais je peux vous aider pour les réservations, les prix, ou vous parler des extensions IBE® et colorations. Dites-m'en plus !", 'bot');
+        showQuickReplies();
+      }
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var text = input.value.trim();
+        if (!text) return;
+        addMsg(text, 'user');
+        input.value = '';
+        // quick replies disappear after user sends message
+        qrContainer.innerHTML = '';
+        setTimeout(function() { botReply(text); }, 400 + Math.random()*300);
+      });
+
+      toggle.addEventListener('click', function() {
+        var isOpen = panel.classList.toggle('open');
+        if (isOpen) { input.focus(); }
+      });
+      closeBtn.addEventListener('click', function() { panel.classList.remove('open'); });
+      // close on Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && panel.classList.contains('open')) panel.classList.remove('open');
+      });
+
+      // ── Show toggle after scrolling past hero ─────────────────────
+      var hero = document.querySelector('.hero');
+      function checkHeroScroll() {
+        if (!hero) return;
+        var heroBottom = hero.offsetTop + hero.offsetHeight;
+        var scrolledPast = window.scrollY >= heroBottom - 80;
+        toggle.classList.toggle('visible', scrolledPast);
+      }
+      window.addEventListener('scroll', checkHeroScroll, { passive: true });
+      window.addEventListener('resize', checkHeroScroll);
+      checkHeroScroll(); // initial state
+
+      // ── Scroll progress bar ────────────────────────────────────────
+      var progressBar = document.getElementById('progress-bar');
+      var progressScissors = document.getElementById('progress-scissors');
+      function updateProgress() {
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
+        progressBar.style.width = (pct * 100) + '%';
+        progressScissors.style.left = 'calc(' + (pct * 100) + '% - 14px)';
+      }
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', updateProgress);
+      updateProgress();
+
+    // ── Cursor follower ────────────────────────────────────────────────
+    var cursorFollow = document.getElementById('cursor-follower');
+    var cursorGlow = document.getElementById('cursor-glow');
+    var mouseX = -100, mouseY = -100;
+    var followX = -100, followY = -100;
+
+    function onMouseMove(e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursorFollow.classList.remove('hidden');
+      cursorGlow.classList.remove('hidden');
+    }
+    document.addEventListener('mousemove', onMouseMove, { passive: true });
+
+    function cursorRaf() {
+      followX += (mouseX - followX) * 0.15;
+      followY += (mouseY - followY) * 0.15;
+      cursorFollow.style.left = followX + 'px';
+      cursorFollow.style.top = followY + 'px';
+      cursorGlow.style.left = mouseX + 'px';
+      cursorGlow.style.top = mouseY + 'px';
+      requestAnimationFrame(cursorRaf);
+    }
+    cursorRaf();
+
+    document.addEventListener('mouseleave', function() {
+      cursorFollow.classList.add('hidden');
+      cursorGlow.classList.add('hidden');
+    });
+    document.addEventListener('mouseenter', function() {
+      if (mouseX > -1) {
+        cursorFollow.classList.remove('hidden');
+        cursorGlow.classList.remove('hidden');
+      }
+    });
+
+    // ── Magnetic hover on all .btn elements ─────────────────────────────
+    var btns = document.querySelectorAll('.btn');
+    btns.forEach(function(btn) {
+      btn.classList.add('magnetic');
+      btn.addEventListener('mousemove', function(e) {
+        var rect = btn.getBoundingClientRect();
+        var cx = rect.left + rect.width / 2;
+        var cy = rect.top + rect.height / 2;
+        var dx = (e.clientX - cx) / (rect.width / 2);
+        var dy = (e.clientY - cy) / (rect.height / 2);
+        var pull = 6;
+        btn.style.setProperty('--mx', (dx * pull) + 'px');
+        btn.style.setProperty('--my', (dy * pull) + 'px');
+        btn.style.transform = 'translate(calc(var(--mx,0px)), calc(var(--my,0px))) scale(1.06)';
+        /* enlarge glow ring on hover */
+        cursorFollow.style.width = '56px';
+        cursorFollow.style.height = '56px';
+        cursorFollow.style.borderColor = 'var(--accent)';
+        cursorFollow.style.background = 'color-mix(in oklch, var(--accent) 16%, transparent)';
+      });
+      btn.addEventListener('mouseleave', function() {
+        btn.style.transform = '';
+        btn.style.setProperty('--mx', '0px');
+        btn.style.setProperty('--my', '0px');
+        cursorFollow.style.width = '40px';
+        cursorFollow.style.height = '40px';
+        cursorFollow.style.borderColor = 'color-mix(in oklch, var(--accent) 50%, transparent)';
+        cursorFollow.style.background = 'color-mix(in oklch, var(--accent) 8%, transparent)';
+      });
+    });
+
+    // reduced-motion or touch: kill cursor
+    function killCursor() {
+      var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || isTouch) {
+        if (cursorFollow) cursorFollow.style.display = 'none';
+        if (cursorGlow) cursorGlow.style.display = 'none';
+        btns.forEach(function(b) { b.classList.remove('magnetic'); });
+      }
+    }
+    killCursor();
+    })();
+
+  </script>
+
+</body>
+</html>
